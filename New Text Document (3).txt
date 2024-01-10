@@ -1,0 +1,18 @@
+dont forget global a only once is defined.
+while 1
+counter = 1;
+for i=  1:20:1000   
+x(counter) = readVoltage(a,'A0');
+counter = counter+1;
+end
+z=fft(x);
+ l = length(z);
+ fs = 2000;
+ f = fs/l *(0:l-1);
+for j = 3:26
+d(j-2) = z(j);
+end
+m = ifft(d);
+plot(abs(m));
+end
+
